@@ -13,7 +13,7 @@
                     </tr>
                     </thead>
                     <tbody>
-                    @foreach($books as $book)
+                    @forelse($books as $book)
                         <tr href="/details/{{$book->id}}">
                             <td>{{$book->title}}</td>
                             <td>{{$book->Detail->author}}</td>
@@ -23,7 +23,13 @@
                                 </button>
                             </td>
                         </tr>
-                    @endforeach
+                        @empty
+                            <tr class="bg-warning text-center">
+                                <td colspan="3">
+                                    <span class="font-weight-bold">No Data</span>
+                                </td>
+                            </tr>
+                    @endforelse
                     </tbody>
                 </table>
             </div>
